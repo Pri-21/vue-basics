@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <title>Blog with Vue 2</title>
+</head>
+<body>
+    <div id ="vue-app">
+        <h1>{{greet()}}</h1>
+        <p>Name: {{ name }}</p>
+        <p>Job: {{ job }}</p>
+        <p>Age: {{ age }}</p>
+        <button v-on:click="add">Add a year</button>
+        <button v-on:click="subtract">Subtract a year</button>
+        <h3>Links</h3>
+        <a v-bind:href="website">The Net Ninja</a>
+        <p v-html="websiteTag"></p>
+        <h3>Event</h3>
+        <div id="canvas" v-on:mousemove="updateXY">X: {{ x }}, Y: {{ y }}</div>
+        <h3>Conditionals</h3>
+        <button v-on:click="error = !error">Toggle Error</button>
+        <button v-on:click="success = !success">Toggle Success</button>
+        <p v-if="error">Show error</p>
+        <p v-else-if="success">Show success</p>
+        <h3>Looping</h3>
+        <ul>
+            <li v-for="character in characters"> {{ character }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(ninja, index) in ninjas"> {{ index }} . {{ ninja.name }} - {{ ninja.age }} </li>
+        </ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
